@@ -58,12 +58,11 @@ Contributions to OpenNutriTracker are welcome! If you find any issues or have su
 
 Thanks to all the contributors:
 <a href="https://github.com/simonoppowa/OpenNutriTracker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=simonoppowa/OpenNutriTracker" />
+<img src="https://contrib.rocks/image?repo=simonoppowa/OpenNutriTracker" />
 </a>
 
-## Getting Started
+### Getting Started With Development
 See the [Getting Started](GettingStarted.md) file for more information.
-
 
 ## Disclaimer
 OpenNutriTracker is not a medical application. All data provided is not validated and should be used with caution. Please maintain a healthy lifestyle and consult a professional if you have any problems. Use during illness, pregnancy or lactation is not recommended.
