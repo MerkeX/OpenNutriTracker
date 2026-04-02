@@ -32,6 +32,8 @@ class HomeLoadedState extends HomeState {
   final List<IntakeEntity> dinnerIntakeList;
   final List<IntakeEntity> snackIntakeList;
   final bool usesImperialUnits;
+  final bool showActivityTracking; // #277
+  final List<WaterIntakeEntity> waterIntakesToday;
 
   const HomeLoadedState({
     required this.showDisclaimerDialog,
@@ -51,6 +53,8 @@ class HomeLoadedState extends HomeState {
     required this.dinnerIntakeList,
     required this.snackIntakeList,
     required this.usesImperialUnits,
+    this.showActivityTracking = true,
+    this.waterIntakesToday = const [],
   });
 
   @override
@@ -59,6 +63,7 @@ class HomeLoadedState extends HomeState {
         lunchIntakeList,
         dinnerIntakeList,
         snackIntakeList,
-        usesImperialUnits
+        usesImperialUnits,
+        waterIntakesToday,
       ];
 }

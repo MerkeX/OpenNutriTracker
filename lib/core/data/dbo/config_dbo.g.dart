@@ -23,6 +23,11 @@ class ConfigDBOAdapter extends TypeAdapter<ConfigDBO> {
       fields[3] as AppThemeDBO,
       usesImperialUnits: fields[4] as bool?,
       userKcalAdjustment: fields[5] as double?,
+      showActivityTracking: fields[9] as bool?,
+      notificationsEnabled: fields[10] as bool?,
+      notificationHour: fields[11] as int?,
+      notificationMinute: fields[12] as int?,
+      showMicronutrients: fields[13] as bool?,
     )
       ..userCarbGoalPct = fields[6] as double?
       ..userProteinGoalPct = fields[7] as double?
@@ -32,7 +37,7 @@ class ConfigDBOAdapter extends TypeAdapter<ConfigDBO> {
   @override
   void write(BinaryWriter writer, ConfigDBO obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(14)
       ..writeByte(0)
       ..write(obj.hasAcceptedDisclaimer)
       ..writeByte(1)
@@ -50,7 +55,17 @@ class ConfigDBOAdapter extends TypeAdapter<ConfigDBO> {
       ..writeByte(7)
       ..write(obj.userProteinGoalPct)
       ..writeByte(8)
-      ..write(obj.userFatGoalPct);
+      ..write(obj.userFatGoalPct)
+      ..writeByte(9)
+      ..write(obj.showActivityTracking)
+      ..writeByte(10)
+      ..write(obj.notificationsEnabled)
+      ..writeByte(11)
+      ..write(obj.notificationHour)
+      ..writeByte(12)
+      ..write(obj.notificationMinute)
+      ..writeByte(13)
+      ..write(obj.showMicronutrients);
   }
 
   @override
@@ -75,6 +90,11 @@ ConfigDBO _$ConfigDBOFromJson(Map<String, dynamic> json) => ConfigDBO(
       $enumDecode(_$AppThemeDBOEnumMap, json['selectedAppTheme']),
       usesImperialUnits: json['usesImperialUnits'] as bool? ?? false,
       userKcalAdjustment: (json['userKcalAdjustment'] as num?)?.toDouble(),
+      showActivityTracking: json['showActivityTracking'] as bool?,
+      notificationsEnabled: json['notificationsEnabled'] as bool?,
+      notificationHour: (json['notificationHour'] as num?)?.toInt(),
+      notificationMinute: (json['notificationMinute'] as num?)?.toInt(),
+      showMicronutrients: json['showMicronutrients'] as bool?,
     )
       ..userCarbGoalPct = (json['userCarbGoalPct'] as num?)?.toDouble()
       ..userProteinGoalPct = (json['userProteinGoalPct'] as num?)?.toDouble()
@@ -90,6 +110,11 @@ Map<String, dynamic> _$ConfigDBOToJson(ConfigDBO instance) => <String, dynamic>{
       'userCarbGoalPct': instance.userCarbGoalPct,
       'userProteinGoalPct': instance.userProteinGoalPct,
       'userFatGoalPct': instance.userFatGoalPct,
+      'showActivityTracking': instance.showActivityTracking,
+      'notificationsEnabled': instance.notificationsEnabled,
+      'notificationHour': instance.notificationHour,
+      'notificationMinute': instance.notificationMinute,
+      'showMicronutrients': instance.showMicronutrients,
     };
 
 const _$AppThemeDBOEnumMap = {

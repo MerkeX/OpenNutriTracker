@@ -110,6 +110,26 @@ class S {
     );
   }
 
+  /// `Warning`
+  String get warningLabel {
+    return Intl.message(
+      'Warning',
+      name: 'warningLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This food has already been added to this meal today. Add it again?`
+  String get duplicateMealDialogContent {
+    return Intl.message(
+      'This food has already been added to this meal today. Add it again?',
+      name: 'duplicateMealDialogContent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Create custom meal item?`
   String get createCustomDialogTitle {
     return Intl.message(
@@ -640,6 +660,36 @@ class S {
     );
   }
 
+  /// `Show Activity Tracking`
+  String get settingsShowActivityTracking {
+    return Intl.message(
+      'Show Activity Tracking',
+      name: 'settingsShowActivityTracking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Reminder`
+  String get settingsNotificationsLabel {
+    return Intl.message(
+      'Daily Reminder',
+      name: 'settingsNotificationsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder time: {time}`
+  String settingsNotificationsTimeLabel(String time) {
+    return Intl.message(
+      'Reminder time: $time',
+      name: 'settingsNotificationsTimeLabel',
+      desc: '',
+      args: [time],
+    );
+  }
+
   /// `Source Code`
   String get settingsSourceCodeLabel {
     return Intl.message(
@@ -708,6 +758,12 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Show Micronutrients`
+  String get settingsShowMicronutrientsLabel {
+    return Intl.message('Show Micronutrients',
+        name: 'settingsShowMicronutrientsLabel', desc: '', args: []);
   }
 
   /// `Distance`
@@ -1171,6 +1227,16 @@ class S {
     );
   }
 
+  /// `kcal exceeded`
+  String get kcalExceededLabel {
+    return Intl.message(
+      'kcal exceeded',
+      name: 'kcalExceededLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Nutrition Information`
   String get nutritionInfoLabel {
     return Intl.message(
@@ -1269,6 +1335,106 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `monounsaturated fat`
+  String get monounsaturatedFatLabel {
+    return Intl.message('monounsaturated fat',
+        name: 'monounsaturatedFatLabel', desc: '', args: []);
+  }
+
+  /// `polyunsaturated fat`
+  String get polyunsaturatedFatLabel {
+    return Intl.message('polyunsaturated fat',
+        name: 'polyunsaturatedFatLabel', desc: '', args: []);
+  }
+
+  /// `trans fat`
+  String get transFatLabel {
+    return Intl.message('trans fat',
+        name: 'transFatLabel', desc: '', args: []);
+  }
+
+  /// `cholesterol`
+  String get cholesterolLabel {
+    return Intl.message('cholesterol',
+        name: 'cholesterolLabel', desc: '', args: []);
+  }
+
+  /// `sodium`
+  String get sodiumLabel {
+    return Intl.message('sodium', name: 'sodiumLabel', desc: '', args: []);
+  }
+
+  /// `potassium`
+  String get potassiumLabel {
+    return Intl.message('potassium',
+        name: 'potassiumLabel', desc: '', args: []);
+  }
+
+  /// `magnesium`
+  String get magnesiumLabel {
+    return Intl.message('magnesium',
+        name: 'magnesiumLabel', desc: '', args: []);
+  }
+
+  /// `calcium`
+  String get calciumLabel {
+    return Intl.message('calcium', name: 'calciumLabel', desc: '', args: []);
+  }
+
+  /// `iron`
+  String get ironLabel {
+    return Intl.message('iron', name: 'ironLabel', desc: '', args: []);
+  }
+
+  /// `zinc`
+  String get zincLabel {
+    return Intl.message('zinc', name: 'zincLabel', desc: '', args: []);
+  }
+
+  /// `phosphorus`
+  String get phosphorusLabel {
+    return Intl.message('phosphorus',
+        name: 'phosphorusLabel', desc: '', args: []);
+  }
+
+  /// `vitamin A`
+  String get vitaminALabel {
+    return Intl.message('vitamin A', name: 'vitaminALabel', desc: '', args: []);
+  }
+
+  /// `vitamin C`
+  String get vitaminCLabel {
+    return Intl.message('vitamin C', name: 'vitaminCLabel', desc: '', args: []);
+  }
+
+  /// `vitamin D`
+  String get vitaminDLabel {
+    return Intl.message('vitamin D', name: 'vitaminDLabel', desc: '', args: []);
+  }
+
+  /// `vitamin B6`
+  String get vitaminB6Label {
+    return Intl.message('vitamin B6',
+        name: 'vitaminB6Label', desc: '', args: []);
+  }
+
+  /// `vitamin B12`
+  String get vitaminB12Label {
+    return Intl.message('vitamin B12',
+        name: 'vitaminB12Label', desc: '', args: []);
+  }
+
+  /// `niacin (B3)`
+  String get niacinLabel {
+    return Intl.message('niacin (B3)', name: 'niacinLabel', desc: '', args: []);
+  }
+
+  /// `Micronutrients`
+  String get micronutrientsLabel {
+    return Intl.message('Micronutrients',
+        name: 'micronutrientsLabel', desc: '', args: []);
   }
 
   /// `Per 100g/ml`
@@ -1574,38 +1740,58 @@ class S {
   /// `kcal per`
   String get mealKcalLabel {
     return Intl.message(
-      'kcal per',
+      'kcal',
       name: 'mealKcalLabel',
       desc: '',
       args: [],
     );
   }
 
-  /// `carbs per`
+  /// `Carbohydrates (g)`
   String get mealCarbsLabel {
     return Intl.message(
-      'carbs per',
+      'Carbohydrates (g)',
       name: 'mealCarbsLabel',
       desc: '',
       args: [],
     );
   }
 
-  /// `fat per`
+  /// `Fat (g)`
   String get mealFatLabel {
     return Intl.message(
-      'fat per',
+      'Fat (g)',
       name: 'mealFatLabel',
       desc: '',
       args: [],
     );
   }
 
-  /// `protein per 100 g/ml`
+  /// `Protein (g)`
   String get mealProteinLabel {
     return Intl.message(
-      'protein per 100 g/ml',
+      'Protein (g)',
       name: 'mealProteinLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Per {qty} {unit}`
+  String mealNutrientsPerQtyLabel(String qty, String unit) {
+    return Intl.message(
+      'Per $qty $unit',
+      name: 'mealNutrientsPerQtyLabel',
+      desc: '',
+      args: [qty, unit],
+    );
+  }
+
+  /// `Total amount`
+  String get mealNutrientsTotalLabel {
+    return Intl.message(
+      'Total amount',
+      name: 'mealNutrientsTotalLabel',
       desc: '',
       args: [],
     );
@@ -1806,6 +1992,56 @@ class S {
     return Intl.message(
       'Goal',
       name: 'goalLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weekly rate`
+  String get weeklyWeightGoalLabel {
+    return Intl.message(
+      'Weekly rate',
+      name: 'weeklyWeightGoalLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not set`
+  String get weeklyWeightGoalNoneLabel {
+    return Intl.message(
+      'Not set',
+      name: 'weeklyWeightGoalNoneLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{rate} kg/week`
+  String weeklyWeightGoalKgPerWeek(String rate) {
+    return Intl.message(
+      '$rate kg/week',
+      name: 'weeklyWeightGoalKgPerWeek',
+      desc: '',
+      args: [rate],
+    );
+  }
+
+  /// `{rate} lbs/week`
+  String weeklyWeightGoalLbsPerWeek(String rate) {
+    return Intl.message(
+      '$rate lbs/week',
+      name: 'weeklyWeightGoalLbsPerWeek',
+      desc: '',
+      args: [rate],
+    );
+  }
+
+  /// `Weekly weight rate`
+  String get chooseWeeklyWeightGoalLabel {
+    return Intl.message(
+      'Weekly weight rate',
+      name: 'chooseWeeklyWeightGoalLabel',
       desc: '',
       args: [],
     );
@@ -4146,6 +4382,56 @@ class S {
     return Intl.message(
       'by hand, moderate effort',
       name: 'paSnowShovingModerateDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Water`
+  String get waterLabel {
+    return Intl.message(
+      'Water',
+      name: 'waterLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily goal: {goal}`
+  String waterDailyGoalLabel(String goal) {
+    return Intl.message(
+      'Daily goal: $goal',
+      name: 'waterDailyGoalLabel',
+      desc: '',
+      args: [goal],
+    );
+  }
+
+  /// `Add water`
+  String get waterAddAmountLabel {
+    return Intl.message(
+      'Add water',
+      name: 'waterAddAmountLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Custom amount (ml)`
+  String get waterCustomAmountLabel {
+    return Intl.message(
+      'Custom amount (ml)',
+      name: 'waterCustomAmountLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get waterDeleteLabel {
+    return Intl.message(
+      'Delete',
+      name: 'waterDeleteLabel',
       desc: '',
       args: [],
     );

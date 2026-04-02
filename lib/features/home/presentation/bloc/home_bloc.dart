@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:opennutritracker/core/domain/entity/intake_entity.dart';
 import 'package:opennutritracker/core/domain/entity/user_activity_entity.dart';
+import 'package:opennutritracker/core/domain/entity/water_intake_entity.dart';
 import 'package:opennutritracker/core/domain/usecase/add_config_usecase.dart';
 import 'package:opennutritracker/core/domain/usecase/add_tracked_day_usecase.dart';
 import 'package:opennutritracker/core/domain/usecase/delete_intake_usecase.dart';
@@ -12,6 +13,7 @@ import 'package:opennutritracker/core/domain/usecase/get_intake_usecase.dart';
 import 'package:opennutritracker/core/domain/usecase/get_kcal_goal_usecase.dart';
 import 'package:opennutritracker/core/domain/usecase/get_macro_goal_usecase.dart';
 import 'package:opennutritracker/core/domain/usecase/get_user_activity_usecase.dart';
+import 'package:opennutritracker/core/domain/usecase/get_water_usecase.dart';
 import 'package:opennutritracker/core/domain/usecase/update_intake_usecase.dart';
 import 'package:opennutritracker/core/utils/calc/calorie_goal_calc.dart';
 import 'package:opennutritracker/core/utils/calc/macro_calc.dart';
@@ -34,6 +36,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final AddTrackedDayUsecase _addTrackedDayUseCase;
   final GetKcalGoalUsecase _getKcalGoalUsecase;
   final GetMacroGoalUsecase _getMacroGoalUsecase;
+  final GetWaterUsecase _getWaterUsecase;
 
   DateTime currentDay = DateTime.now();
 
@@ -47,7 +50,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       this._deleteUserActivityUsecase,
       this._addTrackedDayUseCase,
       this._getKcalGoalUsecase,
-      this._getMacroGoalUsecase)
+      this._getMacroGoalUsecase,
+      this._getWaterUsecase)
       : super(HomeInitial()) {
     on<LoadItemsEvent>((event, emit) async {
       emit(HomeLoadingState());
@@ -56,6 +60,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final configData = await _getConfigUsecase.getConfig();
       final usesImperialUnits = configData.usesImperialUnits;
       final showDisclaimerDialog = !configData.hasAcceptedDisclaimer;
+      final showActivityTracking = configData.showActivityTracking;
 
       final breakfastIntakeList =
           await _getIntakeUsecase.getTodayBreakfastIntake();
@@ -104,6 +109,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final totalKcalActivities =
           userActivities.map((activity) => activity.burnedKcal).toList().sum;
 
+      final waterIntakesToday = await _getWaterUsecase.getTodayWaterIntakes();
+
       final totalKcalGoal = await _getKcalGoalUsecase.getKcalGoal();
       final totalCarbsGoal =
           await _getMacroGoalUsecase.getCarbsGoal(totalKcalGoal);
@@ -132,7 +139,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           dinnerIntakeList: dinnerIntakeList,
           snackIntakeList: snackIntakeList,
           userActivityList: userActivities,
-          usesImperialUnits: usesImperialUnits));
+          usesImperialUnits: usesImperialUnits,
+          showActivityTracking: showActivityTracking,
+          waterIntakesToday: waterIntakesToday));
     });
   }
 
@@ -157,11 +166,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     final dateTime = DateTime.now();
     // Get old intake values
     final oldIntakeObject = await _getIntakeUsecase.getIntakeById(intakeId);
-    assert(oldIntakeObject != null);
+    if (oldIntakeObject == null) return;
     final newIntakeObject =
         await _updateIntakeUsecase.updateIntake(intakeId, fields);
-    assert(newIntakeObject != null);
-    if (oldIntakeObject!.amount > newIntakeObject!.amount) {
+    if (newIntakeObject == null) return;
+    if (oldIntakeObject.amount > newIntakeObject.amount) {
       // Amounts shrunk
       await _addTrackedDayUseCase.removeDayCaloriesTracked(
           dateTime, oldIntakeObject.totalKcal - newIntakeObject.totalKcal);
@@ -216,6 +225,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         fatAmount: fatAmount,
         proteinAmount: proteinAmount);
     _updateDiaryPage(dateTime);
+    add(const LoadItemsEvent()); // #208: Reload home page to remove activity indicator
   }
 
   Future<void> _updateDiaryPage(DateTime day) async {

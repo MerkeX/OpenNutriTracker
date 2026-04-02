@@ -5,6 +5,8 @@
   "alphaVersionName": "[Alpha]",
   "betaVersionName": "[Beta]",
   "addLabel": "Hinzufügen",
+  "warningLabel": "Warnung",
+  "duplicateMealDialogContent": "Dieses Lebensmittel wurde heute bereits zu dieser Mahlzeit hinzugefügt. Erneut hinzufügen?",
   "createCustomDialogTitle": "Benutzerdefinierte Mahlzeit erstellen?",
   "createCustomDialogContent": "Möchten Sie einen benutzerdefinierte Mahlzeit erstellen?",
   "settingsLabel": "Einstellungen",
@@ -56,6 +58,13 @@
   "settingsDisclaimerLabel": "Hinweis",
   "settingsReportErrorLabel": "Fehler melden",
   "settingsPrivacySettings": "Datenschutzeinstellungen",
+  "settingsNotificationsLabel": "Tägliche Erinnerung",
+  "settingsNotificationsTimeLabel": "Erinnerungszeit: {time}",
+  "@settingsNotificationsTimeLabel": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
   "settingsSourceCodeLabel": "Quellcode",
   "settingFeedbackLabel": "Feedback",
   "settingAboutLabel": "Über",
@@ -117,6 +126,25 @@
   "carbohydrateLabel": "Kohlenhydrate",
   "sugarLabel": "Zucker",
   "fiberLabel": "Ballaststoffe",
+  "monounsaturatedFatLabel": "einfach ungesättigte Fettsäuren",
+  "polyunsaturatedFatLabel": "mehrfach ungesättigte Fettsäuren",
+  "transFatLabel": "Transfettsäuren",
+  "cholesterolLabel": "Cholesterin",
+  "sodiumLabel": "Natrium",
+  "potassiumLabel": "Kalium",
+  "magnesiumLabel": "Magnesium",
+  "calciumLabel": "Calcium",
+  "ironLabel": "Eisen",
+  "zincLabel": "Zink",
+  "phosphorusLabel": "Phosphor",
+  "vitaminALabel": "Vitamin A",
+  "vitaminCLabel": "Vitamin C",
+  "vitaminDLabel": "Vitamin D",
+  "vitaminB6Label": "Vitamin B6",
+  "vitaminB12Label": "Vitamin B12",
+  "niacinLabel": "Niacin (B3)",
+  "micronutrientsLabel": "Mikronährstoffe",
+  "settingsShowMicronutrientsLabel": "Mikronährstoffe anzeigen",
   "per100gmlLabel": "Pro 100 g/ml",
   "additionalInfoLabelOFF": "Weitere Informationen unter\nOpenFoodFacts",
   "offDisclaimer": "Die Daten, die Ihnen mit dieser App zur Verfügung gestellt werden, stammen aus der Open Food Facts-Datenbank. Es kann keine Garantie für die Richtigkeit, Vollständigkeit oder Zuverlässigkeit der bereitgestellten Informationen übernommen werden. Die Daten werden ohne Mängelgewähr zur Verfügung gestellt, und die Ursprungsquelle der Daten (Open Food Facts) haftet nicht für Schäden, die aus der Verwendung der Daten entstehen.",
@@ -146,10 +174,18 @@
   "servingSizeLabelMetric": "Portionsgröße (g/ml)",
   "servingSizeLabelImperial": "Portionsgröße (oz/fl oz)",
   "mealUnitLabel": "Mahlzeiteinheit",
-  "mealKcalLabel": "kcal pro 100 g/ml",
-  "mealCarbsLabel": "Kohlenhydrate pro 100 g/ml",
-  "mealFatLabel": "Fett pro 100 g/ml",
-  "mealProteinLabel": "Protein pro 100 g/ml",
+  "mealKcalLabel": "kcal",
+  "mealCarbsLabel": "Kohlenhydrate (g)",
+  "mealFatLabel": "Fett (g)",
+  "mealProteinLabel": "Protein (g)",
+  "mealNutrientsPerQtyLabel": "Pro {qty} {unit}",
+  "@mealNutrientsPerQtyLabel": {
+    "placeholders": {
+      "qty": { "type": "String" },
+      "unit": { "type": "String" }
+    }
+  },
+  "mealNutrientsTotalLabel": "Gesamtmenge",
   "errorMealSave": "Fehler beim Speichern der Mahlzeit. Haben Sie die korrekten Mahlzeiteninformationen eingegeben?",
   "bmiLabel": "BMI",
   "bmiInfo": "Der Body-Mass-Index (BMI) ist ein Index zur Klassifizierung von Übergewicht und Fettleibigkeit bei Erwachsenen. Er wird berechnet, indem das Gewicht in Kilogramm durch das Quadrat der Körpergröße in Metern (kg/m²) geteilt wird.\n\nDer BMI unterscheidet nicht zwischen Fett- und Muskelmasse und kann für einige Personen irreführend sein.",
@@ -170,6 +206,21 @@
   "goalMaintainWeight": "Gewicht halten",
   "goalGainWeight": "Gewicht zunehmen",
   "goalLabel": "Ziel",
+  "weeklyWeightGoalLabel": "Wöchentliche Rate",
+  "weeklyWeightGoalNoneLabel": "Nicht festgelegt",
+  "weeklyWeightGoalKgPerWeek": "{rate} kg/Woche",
+  "@weeklyWeightGoalKgPerWeek": {
+    "placeholders": {
+      "rate": { "type": "String" }
+    }
+  },
+  "weeklyWeightGoalLbsPerWeek": "{rate} lbs/Woche",
+  "@weeklyWeightGoalLbsPerWeek": {
+    "placeholders": {
+      "rate": { "type": "String" }
+    }
+  },
+  "chooseWeeklyWeightGoalLabel": "Wöchentliche Gewichtsrate",
   "selectHeightDialogLabel": "Größe auswählen",
   "heightLabel": "Größe",
   "cmLabel": "cm",
@@ -401,5 +452,15 @@
   "paSkiingGeneral": "Skifahren",
   "paSkiingGeneralDesc": "allgemein",
   "paSnowShovingModerate": "Schnee schaufeln",
-  "paSnowShovingModerateDesc": "manuell, mäßige Anstrengung"
+  "paSnowShovingModerateDesc": "manuell, mäßige Anstrengung",
+  "waterLabel": "Wasser",
+  "waterDailyGoalLabel": "Tagesziel: {goal}",
+  "@waterDailyGoalLabel": {
+    "placeholders": {
+      "goal": { "type": "String" }
+    }
+  },
+  "waterAddAmountLabel": "Wasser hinzufügen",
+  "waterCustomAmountLabel": "Benutzerdefinierte Menge (ml)",
+  "waterDeleteLabel": "Löschen"
 }

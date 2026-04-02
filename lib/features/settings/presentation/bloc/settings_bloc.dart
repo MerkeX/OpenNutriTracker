@@ -40,7 +40,12 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           appVersion,
           userConfig.hasAcceptedSendAnonymousData,
           userConfig.appTheme,
-          usesImperialUnits));
+          usesImperialUnits,
+          showActivityTracking: userConfig.showActivityTracking,
+          notificationsEnabled: userConfig.notificationsEnabled,
+          notificationHour: userConfig.notificationHour,
+          notificationMinute: userConfig.notificationMinute,
+          showMicronutrients: userConfig.showMicronutrients));
     });
   }
 
@@ -55,6 +60,19 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
   void setUsesImperialUnits(bool usesImperialUnits) {
     _addConfigUsecase.setConfigUsesImperialUnits(usesImperialUnits);
+  }
+
+  void setShowActivityTracking(bool showActivityTracking) {
+    _addConfigUsecase.setConfigShowActivityTracking(showActivityTracking);
+  }
+
+  // #312: Notification reminder helpers
+  void setNotificationsEnabled(bool enabled) {
+    _addConfigUsecase.setNotificationsEnabled(enabled);
+  }
+
+  void setNotificationTime(int hour, int minute) {
+    _addConfigUsecase.setNotificationTime(hour, minute);
   }
 
   Future<double> getKcalAdjustment() async {
@@ -84,6 +102,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       double carbGoalPct, double proteinGoalPct, double fatGoalPct) {
     _addConfigUsecase.setConfigMacroGoalPct(carbGoalPct.toInt() / 100,
         proteinGoalPct.toInt() / 100, fatGoalPct.toInt() / 100);
+  }
+
+  void setShowMicronutrients(bool show) {
+    _addConfigUsecase.setConfigShowMicronutrients(show);
   }
 
   void updateTrackedDay(DateTime day) async {

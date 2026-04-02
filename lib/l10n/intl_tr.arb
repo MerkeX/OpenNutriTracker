@@ -5,6 +5,8 @@
   "alphaVersionName": "[Alpha]",
   "betaVersionName": "[Beta]",
   "addLabel": "Ekle",
+  "warningLabel": "Uyarı",
+  "duplicateMealDialogContent": "Bu yiyecek bugün bu öğüne zaten eklenmiş. Tekrar eklensin mi?",
   "createCustomDialogTitle": "Özel yemek öğesi oluştur?",
   "createCustomDialogContent": "Özel bir yemek öğesi oluşturmak istiyor musunuz?",
   "settingsLabel": "Ayarlar",
@@ -58,6 +60,13 @@
   "settingsDisclaimerLabel": "Sorumluluk Reddi",
   "settingsReportErrorLabel": "Hata Bildir",
   "settingsPrivacySettings": "Gizlilik Ayarları",
+  "settingsNotificationsLabel": "Günlük Hatırlatıcı",
+  "settingsNotificationsTimeLabel": "Hatırlatma zamanı: {time}",
+  "@settingsNotificationsTimeLabel": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
   "settingsSourceCodeLabel": "Kaynak Kodu",
   "settingFeedbackLabel": "Geri Bildirim",
   "settingAboutLabel": "Hakkında",
@@ -120,6 +129,25 @@
   "carbohydrateLabel": "karbonhidrat",
   "sugarLabel": "şeker",
   "fiberLabel": "lif",
+  "monounsaturatedFatLabel": "tekli doymamış yağ",
+  "polyunsaturatedFatLabel": "çoklu doymamış yağ",
+  "transFatLabel": "trans yağ",
+  "cholesterolLabel": "kolesterol",
+  "sodiumLabel": "sodyum",
+  "potassiumLabel": "potasyum",
+  "magnesiumLabel": "magnezyum",
+  "calciumLabel": "kalsiyum",
+  "ironLabel": "demir",
+  "zincLabel": "çinko",
+  "phosphorusLabel": "fosfor",
+  "vitaminALabel": "A vitamini",
+  "vitaminCLabel": "C vitamini",
+  "vitaminDLabel": "D vitamini",
+  "vitaminB6Label": "B6 vitamini",
+  "vitaminB12Label": "B12 vitamini",
+  "niacinLabel": "niasin (B3)",
+  "micronutrientsLabel": "Mikro besinler",
+  "settingsShowMicronutrientsLabel": "Mikro besinleri göster",
   "per100gmlLabel": "100g/ml başına",
   "additionalInfoLabelOFF": "Daha Fazla Bilgi\nOpenFoodFacts'te",
   "offDisclaimer": "Bu uygulama tarafından size sağlanan veriler Open Food Facts veritabanından alınmaktadır. Sağlanan bilgilerin doğruluğu, eksiksizliği veya güvenilirliği konusunda hiçbir garanti verilmemektedir. Veriler \"olduğu gibi\" sağlanır ve verilerin kullanımıyla ilgili herhangi bir zarardan verilerin kaynağı (Open Food Facts) sorumlu tutulamaz.",
@@ -150,10 +178,18 @@
   "servingSizeLabelMetric": "Porsiyon boyutu (g/ml)",
   "servingSizeLabelImperial": "Porsiyon boyutu (oz/fl oz)",
   "mealUnitLabel": "Yemek birimi",
-  "mealKcalLabel": "kcal başına",
-  "mealCarbsLabel": "karbonhidrat başına",
-  "mealFatLabel": "yağ başına",
-  "mealProteinLabel": "protein başına 100 g/ml",
+  "mealKcalLabel": "kcal",
+  "mealCarbsLabel": "Karbonhidrat (g)",
+  "mealFatLabel": "Yağ (g)",
+  "mealProteinLabel": "Protein (g)",
+  "mealNutrientsPerQtyLabel": "{qty} {unit} başına",
+  "@mealNutrientsPerQtyLabel": {
+    "placeholders": {
+      "qty": { "type": "String" },
+      "unit": { "type": "String" }
+    }
+  },
+  "mealNutrientsTotalLabel": "Toplam miktar",
   "errorMealSave": "Yemek kaydedilirken hata oluştu. Doğru yemek bilgilerini girdiniz mi?",
   "bmiLabel": "BMI",
   "bmiInfo": "Vücut Kitle İndeksi (BMI), yetişkinlerde aşırı kiloyu ve obeziteyi sınıflandırmak için kullanılan bir indekstir. Kilogram cinsinden ağırlığın, metre cinsinden boyun karesine bölünmesiyle tanımlanır (kg/m²).\n\nBMI, yağ ve kas kütlesi arasında ayrım yapmaz ve bazı bireyler için yanıltıcı olabilir.",
@@ -174,6 +210,21 @@
   "goalMaintainWeight": "Kilo Koru",
   "goalGainWeight": "Kilo Al",
   "goalLabel": "Hedef",
+  "weeklyWeightGoalLabel": "Haftalık oran",
+  "weeklyWeightGoalNoneLabel": "Ayarlanmadı",
+  "weeklyWeightGoalKgPerWeek": "{rate} kg/hafta",
+  "@weeklyWeightGoalKgPerWeek": {
+    "placeholders": {
+      "rate": { "type": "String" }
+    }
+  },
+  "weeklyWeightGoalLbsPerWeek": "{rate} lbs/hafta",
+  "@weeklyWeightGoalLbsPerWeek": {
+    "placeholders": {
+      "rate": { "type": "String" }
+    }
+  },
+  "chooseWeeklyWeightGoalLabel": "Haftalık kilo oranı",
   "selectHeightDialogLabel": "Boy Seçin",
   "heightLabel": "Boy",
   "cmLabel": "cm",
@@ -408,5 +459,15 @@
   "paSkiingGeneral": "kayak",
   "paSkiingGeneralDesc": "genel",
   "paSnowShovingModerate": "kar küreme",
-  "paSnowShovingModerateDesc": "elle, orta derecede çaba"
+  "paSnowShovingModerateDesc": "elle, orta derecede çaba",
+  "waterLabel": "Su",
+  "waterDailyGoalLabel": "Günlük hedef: {goal}",
+  "@waterDailyGoalLabel": {
+    "placeholders": {
+      "goal": { "type": "String" }
+    }
+  },
+  "waterAddAmountLabel": "Su ekle",
+  "waterCustomAmountLabel": "Özel miktar (ml)",
+  "waterDeleteLabel": "Sil"
 }

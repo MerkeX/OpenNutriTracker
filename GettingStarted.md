@@ -1,6 +1,6 @@
 # Getting Started
 For setup first you need the following things:
-- Flutter Version 3.27.1
+- Flutter Version: latest stable version
 - IDE like Android Studio or VS Code with Flutter Plugin installed.
 
 ## Steps to run App
