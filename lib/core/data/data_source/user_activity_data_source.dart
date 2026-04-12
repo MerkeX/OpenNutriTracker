@@ -45,12 +45,12 @@ class UserActivityDataSource {
 
   Future<List<UserActivityDBO>> getRecentlyAddedUserActivity(
       {int number = 100}) async {
-    final userActivities = _userActivityBox.values.toList().reversed;
+    final userActivities = _userActivityBox.values.toList();
 
-    //  sort list by date and filter unique activities
-    userActivities.toList().sort(
-          (a, b) => a.date.toString().compareTo(b.date.toString()),
-        );
+    //  sort list by date descending and filter unique activities
+    userActivities.sort(
+      (a, b) => b.date.compareTo(a.date),
+    );
 
     final filterActivityCodes = <String>{};
     final uniqueUserActivities = userActivities
